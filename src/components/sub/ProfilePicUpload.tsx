@@ -1,5 +1,5 @@
 import { FiCamera, FiTrash2, FiUpload, FiX } from "react-icons/fi";
-import { RefObject, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import useImageUpload from "../../hooks/useImageUpload";
 import useFileHandler from "../../hooks/useFileHandler";
 import { putRequest } from "../../services/apiRequests";
@@ -29,7 +29,7 @@ const ProfilePicUpload = ({
   }
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [tempImage, setTempImage] = useState<string | null>(null);
-  const { selectedFile, previewUrl, handleFileChange } = useFileHandler();
+  const { selectedFile, handleFileChange } = useFileHandler();
   const { uploadImage, isLoading, error, progress } = useImageUpload();
 
   const triggerFileInput = () => {
@@ -60,6 +60,9 @@ const ProfilePicUpload = ({
         ...profile,
         profilePic: profilePic,
       });
+
+      if(response) {
+      }
 
       setTempImage(null);
       setShowPicOptions(false);
