@@ -233,6 +233,9 @@ const CreateRidePost = () => {
 
     if (res) {
       navigate("/");
+      
+    } else {
+      navigate("/");
     }
   };
 
